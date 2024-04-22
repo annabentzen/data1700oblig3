@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kjøp av kinobilletter</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="script.js"></script>
+</head>
+<body>
+<h1>Bestilling av kinobilletter</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+<form id="ticketForm">
+    <div class="form-group">
+    <label for="movie">Velg film:</label><br>
+    <select id="movie" class="form-control" required oninvalid="this.setCustomValidity('Du må velge en film')"
+            oninput="this.setCustomValidity('')">
+        <option value="" disabled selected>Velg film</option>
+    </select>
+    </div>
+    <div class="form-group">
+    <label for="quantity">Antall billetter:</label><br>
+    <input type="number" id="quantity" class="form-control" required min="1" title="Velg antall billetter"
+           oninvalid="this.setCustomValidity('Du må velge et antall billetter')"
+           oninput="this.setCustomValidity('')"><br>
+    </div>
+    <label for="firstname">Fornavn:</label><br>
+    <input type="text" id="firstname" required pattern="[a-zA-ZæøåÆØÅ]+" title="Skriv inn fornavn"
+           oninvalid="this.setCustomValidity('Vennligst skriv inn et gyldig fornavn')"
+           oninput="this.setCustomValidity('')"><br>
+    <label for="surname">Etternavn:</label><br>
+    <input type="text" id="surname" required pattern="[a-zA-ZæøåÆØÅ]+" title="Skriv inn etternavn"
+           oninvalid="this.setCustomValidity('Vennligst skriv inn et gyldig etternavn')"
+           oninput="this.setCustomValidity('')"><br>
+    <label for="email">E-postadresse:</label><br>
+    <input type="email" id="email" required pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+           title="Skriv inn en gyldig e-postadresse"
+           oninvalid="this.setCustomValidity('Skriv inn en gyldig e-postadresse')" oninput="this.setCustomValidity('')"><br>
+    <label for="phone">Telefonnummer:</label><br>
+    <input type="tel" id="phone" required pattern="[0-9+]{8-11}" title="Skriv inn telefonnummer"
+           oninvalid="this.setCustomValidity('Vennligst skriv inn et gyldig telefonnummer, med eller uten landskode')"
+           oninput="this.setCustomValidity('')"><br>
+    <button type="submit" class="btn btn-primary">Kjøp billett</button>
+</form>
+        </div>
+        <div class="col-md-6">
+<h2>Alle billetter</h2>
+            <table id="ticketTable" class="table">
+                <thead>
+                <tr>
+                    <th>Film</th>
+                    <th>Antall</th>
+                    <th>Fornavn</th>
+                    <th>Etternavn</th>
+                    <th>E-post</th>
+                    <th>Telefon</th>
+                </tr>
+                </thead>
+                <tbody id="ticketList">
+                </tbody>
+            </table>
+<div>
+    <button id="slettAlleBilletter" type="reset" class="btn btn-danger">Slett alle billettene</button>
+</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
